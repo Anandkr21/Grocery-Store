@@ -39,3 +39,14 @@ const UserModel = new mongoose.model('User', userSchema);
 
 module.exports = { UserModel };
 
+
+// {
+//   "name":"anand",
+//   "email": "anand@gmail.com",
+//   "password": "aA@12345",
+//   "role": "admin"
+// }
+
+// password shoud be mixture of
+// lower, upper, number and special character.
+// length shoud be atleast 8 character

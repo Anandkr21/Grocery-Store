@@ -3,7 +3,7 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
+// user register
 exports.register = async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
@@ -126,4 +126,22 @@ exports.logout = (req, res) => {
     // pushing token into blacklist file for logout
     fs.writeFileSync('./blacklist.json', JSON.stringify(blacklist_data))
     res.send("Logout Successfull")
+}
+
+
+// get all user
+exports.alluser = async (req, res) => {
+    try {
+        const allusers = await UserModel.find();
+        res.status(200).send({
+            status: true,
+            msg: " List of all users here!",
+            data: allusers
+        })
+    } catch (error) {
+        res.status(500).send({
+            msg: "Internal server error",
+            error: error.message
+        })
+    }
 }
