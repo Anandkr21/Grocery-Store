@@ -9,13 +9,17 @@ exports.register = async (req, res) => {
         const { name, email, password, role } = req.body;
         // checking all credentials are entered or not
         if (!name || !email || !password) {
-            return res.status(401).send({ "msg": "Enter all credentials!" })
+            return res.status(401).send({ 
+                msg: "Enter all credentials!" 
+            });
         }
 
         // checking user is exist or not
         let user = await UserModel.findOne({ email })
         if (user) {
-            return res.status(400).send({ "msg": "User Already Exist! Please Login first." })
+            return res.status(400).send({ 
+                msg: "User Already Exist! Please Login first." 
+            });
         }
 
         // Check if the password meets the strong password requirements
@@ -32,14 +36,15 @@ exports.register = async (req, res) => {
                 if (hash) {
                     await UserModel.insertMany([{ name, email, password: hash, role }]);
                     return res.status(201).send({
-                        "msg": "Registerd successfully"
-                    })
+                        msg: "Registerd successfully!"
+                    });
                 } else {
                     return res.status(400).send({
-                        "msg": " Something error"
-                    })
+                        msg: "Something error.",
+                        data: "user"
+                    });
                 }
-            })
+            });
         }
     } catch (error) {
         res.status(400).send({
@@ -80,7 +85,7 @@ exports.login = async (req, res) => {
                 res.status(404).send({
                     status: false,
                     msg: "Wrong Password"
-                })
+                });
             }
         });
     } catch (error) {
@@ -117,15 +122,16 @@ exports.resetPassword = async (req, res) => {
             res.status(401).send({
                 status: false,
                 msg: "User not found!"
-            })
+            });
         }
     } catch {
         res.status(404).send({
             status: false,
             msg: 'Error while updating the password.'
-        })
+        });
     }
 }
+
 
 // logout here
 exports.logout = (req, res) => {
@@ -139,6 +145,7 @@ exports.logout = (req, res) => {
 }
 
 
+
 // get all user
 exports.alluser = async (req, res) => {
     try {
@@ -147,11 +154,12 @@ exports.alluser = async (req, res) => {
             status: true,
             msg: " List of all users here!",
             data: allusers
-        })
+        });
     } catch (error) {
         res.status(500).send({
             msg: "Internal server error",
             error: error.message
-        })
+        });
     }
 }
+

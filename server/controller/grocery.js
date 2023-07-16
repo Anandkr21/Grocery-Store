@@ -1,4 +1,4 @@
-const { Grocery } = require("../model/groceryModel")
+const { Grocery } = require("../model/groceryModel");
 
 // GET Route
 // Get all grocery from this route
@@ -58,6 +58,7 @@ exports.updateItem = async (req, res) => {
         });
     }
 }
+
 
 // Delete Route
 exports.deleteItem = async (req, res) => {

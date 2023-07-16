@@ -1,24 +1,24 @@
 const express = require('express');
 const { connection } = require('./config/db');
 const { userRoute } = require('./route/userRoute');
-const { groceryRoute } = require('./route/groceryRoute')
+const { groceryRoute } = require('./route/groceryRoute');
 
 require('dotenv').config();
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-const Port = process.env.PORT || 5000;
+const Port = process.env.PORT || 8080;
 
 
 app.get('/', (req, res) => {
     res.status(200).send({
-        msg: 'Welcome to Grocery Store'
+        msg: 'Welcome to Grocery Store !'
     });
 });
 
 
-app.use('/user', userRoute)
-app.use('/grocery', groceryRoute)
+app.use('/user', userRoute);
+app.use('/grocery', groceryRoute);
 
 
 app.listen(Port, async () => {
@@ -30,4 +30,5 @@ app.listen(Port, async () => {
     }
     console.log(`Server is running at http://localhost:${Port}`);
 })
+
 
