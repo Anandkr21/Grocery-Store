@@ -9,13 +9,13 @@ exports.grocery = async (req, res) => {
             status: true,
             msg: "List of all Grocery are here.",
             data: allgrocery
-        })
+        });
     } catch (error) {
         res.status(500).send({
             status: true,
             msg: "Internal server error!",
             error: error.message
-        })
+        });
     }
 }
 
@@ -35,7 +35,7 @@ exports.addgrocery = async (req, res) => {
             status: false,
             msg: "Internal server error!",
             error: error.message
-        })
+        });
     }
 }
 
@@ -49,13 +49,13 @@ exports.updateItem = async (req, res) => {
             status: true,
             msg: `Item updated with ID: ${id}`,
             data: updateItem
-        })
+        });
     } catch (error) {
         res.status(500).send({
             status: false,
             msg: "Internal server error!",
             error: error.message
-        })
+        });
     }
 }
 
@@ -67,12 +67,12 @@ exports.deleteItem = async (req, res) => {
         res.status(200).send({
             status: true,
             msg: `Item has been deleted with ID: ${id}`
-        })
+        });
     } catch (error) {
         res.status(500).send({
             status: false,
             msg: ' Internal server error',
             error: error.message
-        })
+        });
     }
 }

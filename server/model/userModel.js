@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String,
@@ -27,6 +27,10 @@ const userSchema = mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
+    address: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "address"
+    },
     createdTime: {
         type: Date,
         default: Date.now
@@ -35,7 +39,7 @@ const userSchema = mongoose.Schema({
     versionKey: false
 });
 
-const UserModel = new mongoose.model('User', userSchema);
+const UserModel = new mongoose.model('users', userSchema);
 
 module.exports = { UserModel };
 

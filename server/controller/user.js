@@ -21,7 +21,10 @@ exports.register = async (req, res) => {
         // Check if the password meets the strong password requirements
         const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*]).{8,}$/;
         if (!passwordRegex.test(password)) {
-            return res.status(400).json({ error: 'Please enter a strong password.' });
+            return res.status(400).send({
+                status: false,
+                msg: 'Please enter a strong password.'
+            });
         } else {
             // password bcryption here
             bcrypt.hash(password, 8, async (err, hash) => {
@@ -45,6 +48,7 @@ exports.register = async (req, res) => {
         });
     }
 }
+
 
 
 // user login
@@ -89,20 +93,26 @@ exports.login = async (req, res) => {
 }
 
 
-// password resetting
+// password reset
 exports.resetPassword = async (req, res) => {
     try {
-        const id = req.params.id;
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email });
         if (user) {
-            const hashPassword = bcrypt.hashSync(password, 6);
-            await UserModel.updateOne({ email: email }, { $set: { password: hashPassword } });
-            res.status(200).send({
-                status: true,
-                msg: 'Password has been updated'
-            });
-
+            const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*]).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                return res.status(400).send({
+                    status: false,
+                    msg: 'Please enter a strong password.'
+                });
+            } else {
+                const hashPassword = bcrypt.hashSync(password, 6);
+                await UserModel.updateOne({ email: email }, { $set: { password: hashPassword } });
+                res.status(200).send({
+                    status: true,
+                    msg: 'Password has been updated'
+                });
+            }
         } else {
             res.status(401).send({
                 status: false,
