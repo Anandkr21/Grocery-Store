@@ -13,14 +13,6 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        validate: {
-            validator: function (password) {
-                // Password validation logic
-                const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/;
-                return passwordRegex.test(password);
-            },
-            message: 'Please enter a strong password (at least 6 characters with a mixture of uppercase and lowercase letters, numbers, and special characters).',
-        },
     },
     role: {
         type: String,

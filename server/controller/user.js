@@ -1,54 +1,42 @@
 const { UserModel } = require('../model/userModel');
+const { validationResult, body } = require('express-validator');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
+
 
 // user register
 exports.register = async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
-        // checking all credentials are entered or not
-        if (!name || !email || !password) {
-            return res.status(401).send({ 
-                msg: "Enter all credentials!" 
-            });
+
+        await body('email').isEmail().normalizeEmail().run(req);
+        await body('password').isLength({ min: 8 }).matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/).run(req);
+        // Validation using express-validator
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
 
-        // checking user is exist or not
+        // Checking user existence
         let user = await UserModel.findOne({ email })
         if (user) {
-            return res.status(400).send({ 
-                msg: "User Already Exist! Please Login first." 
-            });
-        }
-
-        // Check if the password meets the strong password requirements
-        const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*]).{8,}$/;
-        if (!passwordRegex.test(password)) {
             return res.status(400).send({
-                status: false,
-                msg: 'Please enter a strong password.'
-            });
-        } else {
-            // password bcryption here
-            bcrypt.hash(password, 8, async (err, hash) => {
-
-                if (hash) {
-                    await UserModel.insertMany([{ name, email, password: hash, role }]);
-                    return res.status(201).send({
-                        msg: "Registerd successfully!"
-                    });
-                } else {
-                    return res.status(400).send({
-                        msg: "Something error.",
-                        data: "user"
-                    });
-                }
+                msg: "User Already Exists! Please login first."
             });
         }
+
+        // Hashing the password
+        const hashedPassword = await bcrypt.hash(password, 8);
+        await UserModel.insertMany([{ name, email, password: hashedPassword, role }]);
+
+        return res.status(201).send({
+            msg: "Registered successfully!"
+        });
     } catch (error) {
         res.status(400).send({
-            "msg": "An error occurred while registering the user.",
+            msg: "An error occurred while registering the user.",
             error: error.message
         });
     }

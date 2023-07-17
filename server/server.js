@@ -2,6 +2,7 @@ const express = require('express');
 const { connection } = require('./config/db');
 const { userRoute } = require('./route/userRoute');
 const { groceryRoute } = require('./route/groceryRoute');
+const { cartRoute } = require('./route/cartRoute')
 
 require('dotenv').config();
 const app = express();
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/user', userRoute);
 app.use('/grocery', groceryRoute);
+app.use('/cart', cartRoute)
 
 
 app.listen(Port, async () => {
