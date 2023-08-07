@@ -14,10 +14,13 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    avatar: {
+        type: String
+    },
     role: {
         type: String,
-        enum: ['user', 'admin'],
-        default: 'user'
+        enum: ['customer', 'seller', 'admin'],
+        default: 'customer'
     },
     address: {
         type: mongoose.Schema.Types.ObjectId,
@@ -31,6 +34,7 @@ const userSchema = mongoose.Schema({
     versionKey: false
 });
 
+userSchema.index({ name: 1 })
 const UserModel = new mongoose.model('users', userSchema);
 
 module.exports = { UserModel };

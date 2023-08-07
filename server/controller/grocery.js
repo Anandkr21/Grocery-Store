@@ -23,11 +23,11 @@ exports.grocery = async (req, res) => {
 // add grocery into database
 exports.addgrocery = async (req, res) => {
     try {
-        const { name, category, price, quantity, description, imageUrl, brand, isAvailable } = req.body;
-        const item = await Grocery.insertMany([{ name, category, price, quantity, description, imageUrl, brand, isAvailable }]);
+        const { name, brand, category, price, quantity, description, imageUrl, rating, isAvailable } = req.body;
+        const item = await Grocery.insertMany([{ name,brand, category, price, quantity, description, imageUrl,rating, isAvailable }]);
         res.status(200).send({
             status: true,
-            msg: "Grocery added successfully!",
+            msg: `${name} added successfully!`,
             data: item
         });
     } catch (error) {

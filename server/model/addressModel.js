@@ -7,23 +7,18 @@ const addresSchema = mongoose.Schema({
     },
     street: {
         type: String,
-        required: true
     },
     city: {
         type: String,
-        required: true,
     },
     postalCode: {
         type: Number,
-        required: true,
     },
     mobileNumber: {
         type: Number,
-        required: true,
     },
     country: {
         type: String,
-        required: true,
     },
 
 }, {

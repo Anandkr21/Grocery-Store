@@ -20,12 +20,10 @@ const cartSchema = mongoose.Schema({
     totalQty: {
         type: Number,
         default: 0,
-        required: true,
     },
     totalCost: {
         type: Number,
         default: 0,
-        required: true,
     },
     purchaseDate: {
         type: Date,
@@ -38,3 +36,8 @@ const cartSchema = mongoose.Schema({
 const Cart = mongoose.model('cart', cartSchema);
 
 module.exports = { Cart }
+
+
+// "item": "hello",
+// "totalQty": "5",
+// "totalCost": "500"

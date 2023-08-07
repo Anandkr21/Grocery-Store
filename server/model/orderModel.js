@@ -26,10 +26,8 @@ const orderSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        required: true,
     },
     paymentId: {
-        type: String,
     },
     status: {
         type: String,
@@ -40,7 +38,11 @@ const orderSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    versionKey: false
 });
+
+orderSchema.index({ total: 1 });  // It will order the item in ascending order
 
 const Order = mongoose.model('Order', orderSchema);
 

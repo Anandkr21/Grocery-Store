@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
-
 // user register
 exports.register = async (req, res) => {
     try {
@@ -32,6 +31,7 @@ exports.register = async (req, res) => {
         await UserModel.insertMany([{ name, email, password: hashedPassword, role }]);
 
         return res.status(201).send({
+            status:true,
             msg: "Registered successfully!"
         });
     } catch (error) {
@@ -51,6 +51,7 @@ exports.login = async (req, res) => {
         const user = await UserModel.findOne({ email });
         if (!user) {
             res.status(401).send({
+                status:false,
                 msg: "Invalid email address or user not found!"
             });
         }
@@ -64,10 +65,11 @@ exports.login = async (req, res) => {
                     expiresIn: "7d"
                 });
                 res.status(200).send({
-                    "msg": 'You are logged in!',
-                    "Token": token,
-                    "RefreshToken": refreshToken,
-                    "Data": user
+                    status:true,
+                    msg: 'You are logged in!',
+                    Token: token,
+                    RefreshToken: refreshToken,
+                    Data: user
                 });
             } else {
                 res.status(404).send({
