@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs');
+const { routeLogger } = require('./middleware/loggerMiddleware');
 const { connection } = require('./config/db');
 const { userRoute } = require('./route/userRoute');
 const { groceryRoute } = require('./route/groceryRoute');
@@ -23,6 +25,9 @@ app.get('/', (req, res) => {
         msg: 'Welcome to Grocery Store !'
     });
 });
+
+// Route Logger Middleware
+app.use(routeLogger);
 
 // Use the defined routes for different parts of the application
 app.use('/user', userRoute); // User-related routes
