@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 const { routeLogger } = require('./middleware/loggerMiddleware');
 const { connection } = require('./config/db');
 const { userRoute } = require('./route/userRoute');
@@ -18,10 +17,62 @@ app.use(express.json());
 // Set the port for the server to listen on, default to 8080 if not specified in the .env file
 const Port = process.env.PORT || 8080;
 
+// ---------------Google OAuth----------------------------------------------------------
+
+// const passport = require('passport');
+// const session = require('express-session');
+// require('../server/utils/Oauth');
+
+// function isLoggedIn(req, res, next) {
+//     req.user ? next() : res.sendStatus(401)
+// }
+
+// app.get('/auth', (req, res) => {
+//     res.send('<a href="/auth/google">Authentication with google</a>')
+// })
+// app.use(session({
+//     secret: 'keyboard',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false }
+// }))
+
+// app.use(passport.initialize())
+// app.use(passport.session())
+
+
+// app.get('/auth/google',
+//     passport.authenticate('google', { scope: ['email', 'profile'] }))
+
+// app.get('/auth/google/callback',
+//     passport.authenticate('google', {
+//         successRedirect: '/protected',
+//         failureRedirect: '/auth/failure'
+//     })
+// );
+
+// app.get('/protected', isLoggedIn, (req, res) => {
+//     let name = req.user.displayName;
+//     res.send(`Hello ${name}`)
+// })
+
+// app.get('/auth/failure', (req, res) => {
+//     res.send('somethng went wrong.')
+// })
+
+// app.use('/logout', (req, res) => {
+//     req.session.destroy()
+//     res.send('bye')
+// })
+
+// ----------------------Google OAuth------------------------------------------------------------
+
+
+
 // Route for the root URL
 app.get('/', (req, res) => {
     res.status(200).send({
-        status:true,
+        status: true,
         msg: 'Welcome to Grocery Store !'
     });
 });
@@ -34,6 +85,8 @@ app.use('/user', userRoute); // User-related routes
 app.use('/grocery', groceryRoute); // Grocery-related routes
 app.use('/cart', cartRoute); // Cart-related routes
 
+
+
 // Start the server and listen for incoming connections
 app.listen(Port, async () => {
     try {
@@ -45,4 +98,6 @@ app.listen(Port, async () => {
     }
     console.log(`Server is running at http://localhost:${Port}`);
 });
+
+
 

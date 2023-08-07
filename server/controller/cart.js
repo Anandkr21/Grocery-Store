@@ -42,25 +42,18 @@ module.exports = {
 
     // Updating Item
     updateItem: async (req, res) => {
+       
         try {
             const id = req.params.id;
             const { quantity } = req.body;
             const cartItem = await Cart.findOne({ _id: id });
-    
-            const productIdToUpdate = 'product_id_to_update';
-            const groceryItemToUpdate = cartItem.grocery.find(item => item.productId === productIdToUpdate);
-    
-            if (groceryItemToUpdate) {
-                groceryItemToUpdate.quantity = quantity;
-            }
-    
+            cartItem.items.quantity = quantity;
             await cartItem.save();
-    
-            res.status(200).send({
+            res.status(200).json({
                 status: true,
-                msg: `Cart Item updated with id: ${id}`
+                msg: `Cart item updated with ID: ${id}`
             });
-        } catch (error) {
+        }  catch (error) {
             res.status(500).send({
                 status: false,
                 msg: "Internal server error",
@@ -74,16 +67,16 @@ module.exports = {
     deleteItem: async (req, res) => {
         try {
             const id = req.params.id;
-            const deletedCartItem = await Cart.findByIdAndDelete(id);
+            const result = await Cart.deleteOne({ _id: id });
     
-            if (!deletedCartItem) {
+            if (result.deletedCount === 0) {
                 return res.status(404).json({
                     status: false,
                     msg: `Cart item with id ${id} not found.`,
                 });
             }
     
-            const user = deletedCartItem.user; // Assuming the cart item contains a 'user' field for the user's ObjectId
+            const user = req.user; // Assuming the authenticated user is available in the req.user field
             const updatedCartData = await Cart.find({ user: user }).populate('user', 'name').populate('grocery.productID');
     
             res.status(200).json({
