@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const { UserModel } = require('../model/userModel');
-require('dotenv').config();
+const {UserModel} = require('../model/userModel');
+require('dotenv').config()
 
 exports.authentication = async (req, res, next) => {
     try {
@@ -11,6 +11,7 @@ exports.authentication = async (req, res, next) => {
             });
         }
 
+        // Verify the JWT token using the Secret_Key from the environment variables.
         jwt.verify(token, process.env.Secret_Key, async (err, decoded) => {
             if (err) {
                 return res.json({
@@ -19,8 +20,10 @@ exports.authentication = async (req, res, next) => {
                 });
             }
 
+            // Extract the user ID from the decoded token.
             userId = decoded.userID;
-            console.log(userId);
+
+            // Fetch user details from the database using the user ID.
             const userDetail = await UserModel.findById(userId);
             if (!userDetail) {
                 return res.status(401).json({
@@ -28,13 +31,16 @@ exports.authentication = async (req, res, next) => {
                 });
             }
 
-            role = userDetail.role;
-            console.log(role);
+            // Attach the user's role to the request object for further processing in the route handlers.
+            req.user = userDetail;
+
+            // Proceed to the next middleware or route handler.
             next();
         });
     } catch (error) {
+        // If an error occurs during the authentication process, send a 500 status with an error message.
         res.status(500).json({
-            Message: "Internal server error.",
+            Message: "Internal server error..",
             error: error.message
         });
     }

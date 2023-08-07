@@ -1,11 +1,12 @@
 const express = require('express');
 const userRoute = express.Router();
-const { register, login, resetPassword, logout, alluser } = require('../controller/user')
+const { register, login, resetPassword, logout, alluser } = require('../controller/user');
 
-userRoute.post('/register', register);
-userRoute.post('/login', login);
-userRoute.patch('/reset', resetPassword);
-userRoute.post('/logout', logout);
-userRoute.get('/alluser', alluser);
+// Define routes for user-related operations
+userRoute.post('/register', register); // Route for user registration
+userRoute.post('/login', login); // Route for user login
+userRoute.patch('/reset', resetPassword); // Route for resetting user password
+userRoute.post('/logout', logout); // Route for user logout
+userRoute.get('/alluser', alluser); // Route to get all users
 
-module.exports = { userRoute }
+module.exports = { userRoute };

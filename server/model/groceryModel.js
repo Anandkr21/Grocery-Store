@@ -29,6 +29,10 @@ const grocerySchema = mongoose.Schema({
     type: Boolean,
     default: true
   },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users'
+  },
   createdAt: {
     type: Date,
     default: Date.now
