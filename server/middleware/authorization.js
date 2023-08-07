@@ -1,13 +1,20 @@
-exports.authorise = (permitedRoles) => {
-    return (req, res, next) => {
-        const user_role = req.user.role;
-        if (permitedRoles.includes(user_role)) {
-            next()
-        } else {
-            res.status(401).send({
-                status: false,
-                msg: 'You are not a authorized person.'
-            })
+exports.authorise = (permittedRole) => {
+    try {
+        return (req, res, next) => {
+            if (permittedRole.includes(role)) {
+                next();
+            } else {
+                res.status(404).send({
+                    status: true,
+                    msg: 'You are not Authorized person!'
+                })
+            }
         }
+    } catch (error) {
+        res.status(500).send({
+            status: false,
+            msg: "Internal server error.",
+            error: error.message
+        })
     }
 }
