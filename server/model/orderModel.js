@@ -5,34 +5,18 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users',
     },
-    items: [
-        {
-            productId: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "grocery",
-            },
-            qty: {
-                type: Number,
-                default: 0,
-            },
-            price: {
-                type: Number,
-                default: 0,
-            },
-        },
-    ],
-    total: {
-        type: Number,
+    cartItem: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "cart",
     },
     address: {
-        type: String,
-    },
-    paymentId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'address'
     },
     status: {
         type: String,
-        enum: ['pending', 'shipped', 'delivered'],
-        default: 'pending'
+        enum: ['Sending', 'Shipped', 'Delivered'],
+        default: 'Pending'
     },
     createdAt: {
         type: Date,
@@ -44,6 +28,6 @@ const orderSchema = new mongoose.Schema({
 
 orderSchema.index({ total: 1 });  // It will order the item in ascending order
 
-const Order = mongoose.model('Order', orderSchema);
+const Order = new mongoose.model('order', orderSchema);
 
 module.exports = { Order };

@@ -11,15 +11,15 @@ module.exports = {
             await cartItem.save()
             res.status(200).send({
                 status: true,
-                msg: "Item added successfully!",
+                msg: "Item added successfully !",
                 data: cartItem
-            })
+            });
         } catch (error) {
             res.status(500).send({
                 status: false,
-                msg: "Internal server error",
+                msg: "Internal server error !",
                 error: error.message
-            })
+            });
         }
     },
 

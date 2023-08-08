@@ -64,3 +64,19 @@ Method: GET | Route Visited : /cart/cartitem | Status Code: 200 | Response Time:
 Method: DELETE | Route Visited : /cart/delete/64d218860fa7fb0c19aa9983 | Status Code: 200 | Response Time: 1ms | Query: {} | IP: ::1 | Time: 2023-08-08T11:03:52.447Z 
 Method: DELETE | Route Visited : /cart/delete/64d218860fa7fb0c19aa9983 | Status Code: 200 | Response Time: 6ms | Query: {} | IP: ::1 | Time: 2023-08-08T11:04:34.977Z 
 Method: DELETE | Route Visited : /cart/delete/64d218860fa7fb0c19aa9983 | Status Code: 200 | Response Time: 9ms | Query: {} | IP: ::1 | Time: 2023-08-08T11:05:49.560Z 
+Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 10ms | Query: {} | IP: ::1 | Time: 2023-08-08T11:47:05.912Z 
+Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 0ms | Query: {} | IP: ::1 | Time: 2023-08-08T11:48:16.997Z 
+Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 4ms | Query: {} | IP: ::1 | Time: 2023-08-08T12:25:28.877Z 
+ 
+Method: GET | Route Visited : /cart/cartitem | Status Code: 200 | Response Time: 8ms | Query: {} | IP: ::1 | Time: 2023-08-08T12:26:04.036Z 
+ 
+Method: GET | Route Visited : /cart/cartitem | Status Code: 200 | Response Time: 1ms | Query: {} | IP: ::1 | Time: 2023-08-08T12:26:17.235Z 
+ 
+Method: GET /cart/cartitem | Status Code: 200 | Response Time: 3ms | Query: {} | IP: ::1 | Time: 2023-08-08T15:37:02.584Z 
+ 
+Method: GET | Route Visited: /order/get | Status Code: 200 | Response Time: 4ms | Query: {} | IP: ::1 | Time: 2023-08-08T15:42:12.477Z 
+ 
+Method: POST | Route Visited: /order/postorder | Status Code: 200 | Response Time: 1ms | Query: {} | IP: ::1 | Time: 2023-08-08T15:42:24.098Z 
+ 
+Method: GET | Route Visited:/order/get | Status Code: 200 | Response Time: 3ms | IP: ::1 | Time: 2023-08-08T15:55:09.278Z 
+ 

@@ -14,5 +14,5 @@ exports.routeLogger = (req, res, next) => {
     // Additional functionality: Log the response status code
     const statusCode = res.statusCode;
 
-    fs.appendFileSync('./routeTracking.txt', `Method: ${method} | Route Visited : ${url} | Status Code: ${statusCode} | Response Time: ${responseTime}ms | Query: ${JSON.stringify(query)} | IP: ${clientIP} | Time: ${new Date().toISOString()} \n`);
+    fs.appendFileSync('./routeTracking.txt', `Method: ${method} | Route Visited : ${url} | Status Code: ${statusCode} | Response Time: ${responseTime}ms | Query: ${JSON.stringify(query)} | IP: ${clientIP} | Time: ${new Date().toISOString()} \n \n`);
 };

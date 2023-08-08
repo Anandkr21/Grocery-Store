@@ -4,6 +4,7 @@ const { connection } = require('./config/db');
 const { userRoute } = require('./route/userRoute');
 const { groceryRoute } = require('./route/groceryRoute');
 const { cartRoute } = require('./route/cartRoute');
+const { orderRoute } = require('./route/orderRoute');
 
 // Load environment variables from the .env file
 require('dotenv').config();
@@ -84,6 +85,7 @@ app.use(routeLogger);
 app.use('/user', userRoute); // User-related routes
 app.use('/grocery', groceryRoute); // Grocery-related routes
 app.use('/cart', cartRoute); // Cart-related routes
+app.use('/order', orderRoute) // Order-related routes
 
 
 

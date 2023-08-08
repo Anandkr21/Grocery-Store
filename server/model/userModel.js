@@ -18,8 +18,8 @@ const userSchema = mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['customer', 'seller', 'admin'],
-        default: 'customer'
+        enum: ['Customer', 'Seller', 'Admin'],
+        default: 'Customer'
     },
     address: {
         type: mongoose.Schema.Types.ObjectId,
@@ -34,6 +34,7 @@ const userSchema = mongoose.Schema({
 });
 
 userSchema.index({ name: 1 })
+
 const UserModel = new mongoose.model('users', userSchema);
 
 module.exports = { UserModel };
