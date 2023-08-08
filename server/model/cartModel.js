@@ -5,25 +5,15 @@ const cartSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
-    items: [{
-        productId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'grocery'
-        },
-        quantity: {
-            type: Number,
-        },
-        price: {
-            type: Number
-        }
-    }],
-    totalQty: {
-        type: Number,
-        default: 0,
+    productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'grocery'
     },
-    totalCost: {
+    quantity: {
         type: Number,
-        default: 0,
+    },
+    price: {
+        type: Number
     },
     purchaseDate: {
         type: Date,
