@@ -80,3 +80,5 @@ Method: POST | Route Visited: /order/postorder | Status Code: 200 | Response Tim
  
 Method: GET | Route Visited:/order/get | Status Code: 200 | Response Time: 3ms | IP: ::1 | Time: 2023-08-08T15:55:09.278Z 
  
+Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 3ms | Query: {} | IP: ::1 | Time: 2023-08-09T10:29:23.633Z 
+ 

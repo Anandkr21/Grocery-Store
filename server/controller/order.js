@@ -1,24 +1,24 @@
-const { Cart } = require('../model/cartModel');
-const { Order } = require('../model/orderModel');
+// const { Cart } = require('../model/cartModel');
+// const { Order } = require('../model/orderModel');
 
-module.exports = {
+// module.exports = {
 
     // GET /orders
-    getOrder: async (req, res) => {
-        try {
-            const orders = await Order.find().populate('user cart address');
-            res.status(200).json({
-                status: 'success',
-                data: orders
-            });
-        } catch (err) {
-            res.status(500).json({
-                status: 'error',
-                message: 'Failed to fetch orders',
-                error: err.message
-            });
-        }
-    },
+    // getOrder: async (req, res) => {
+    //     try {
+    //         const orders = await Order.find().populate('user cart address');
+    //         res.status(200).json({
+    //             status: 'success',
+    //             data: orders
+    //         });
+    //     } catch (err) {
+    //         res.status(500).json({
+    //             status: 'error',
+    //             message: 'Failed to fetch orders',
+    //             error: err.message
+    //         });
+    //     }
+    // },
 
 
     // POST /orders
@@ -38,7 +38,7 @@ module.exports = {
     //         })
     //     }
     // },
-}
+// }
 
 
 

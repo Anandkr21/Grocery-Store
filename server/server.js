@@ -85,7 +85,7 @@ app.use(routeLogger);
 app.use('/user', userRoute); // User-related routes
 app.use('/grocery', groceryRoute); // Grocery-related routes
 app.use('/cart', cartRoute); // Cart-related routes
-app.use('/order', orderRoute) // Order-related routes
+// app.use('/order', orderRoute) // Order-related routes
 
 
 
