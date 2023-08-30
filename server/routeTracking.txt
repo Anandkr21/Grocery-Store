@@ -82,3 +82,63 @@ Method: GET | Route Visited:/order/get | Status Code: 200 | Response Time: 3ms |
  
 Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 3ms | Query: {} | IP: ::1 | Time: 2023-08-09T10:29:23.633Z 
  
+Method: GET | Route Visited : /api/alluser | Status Code: 404 | Response Time: 138ms | Query: {} | IP: ::1 | Time: 2023-08-30T09:11:06.511Z 
+ 
+Method: GET | Route Visited : /api | Status Code: 404 | Response Time: 1ms | Query: {} | IP: ::1 | Time: 2023-08-30T09:11:18.033Z 
+ 
+Method: GET | Route Visited : /user | Status Code: 404 | Response Time: 1ms | Query: {} | IP: ::1 | Time: 2023-08-30T09:11:52.864Z 
+ 
+Method: GET | Route Visited : /grocery/allgrocery | Status Code: 200 | Response Time: 5ms | Query: {} | IP: ::1 | Time: 2023-08-30T09:13:11.300Z 
+ 
+Method: GET | Route Visited : /grocery/allgrocery | Status Code: 200 | Response Time: 4ms | Time: 2023-08-30T09:19:49.384Z 
+ 
+Method: POST | Route Visited : /user/login | Status Code: 200 | Response Time: 2ms | Time: 2023-08-30T09:28:55.634Z 
+ 
+Method: POST | Route Visited : /user/login | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:29:18.996Z 
+ 
+Method: POST | Route Visited : /user/login | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:30:08.364Z 
+ 
+Method: POST | Route Visited : /user/register | Status Code: 200 | Response Time: 17ms | Time: 2023-08-30T09:30:32.812Z 
+ 
+Method: POST | Route Visited : /user/register | Status Code: 200 | Response Time: 4ms | Time: 2023-08-30T09:31:03.174Z 
+ 
+Method: POST | Route Visited : /user/register | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:31:17.804Z 
+ 
+Method: POST | Route Visited : /user/login | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:31:27.826Z 
+ 
+Method: GET | Route Visited : /grocery/allgrocery | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:33:05.108Z 
+ 
+Method: POST | Route Visited : /user/register | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:35:12.063Z 
+ 
+Method: POST | Route Visited : /user/login | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:35:20.330Z 
+ 
+Method: GET | Route Visited : /grocery/addgrocery | Status Code: 404 | Response Time: 1ms | Time: 2023-08-30T09:36:30.346Z 
+ 
+Method: POST | Route Visited : /grocery/addgrocery | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:36:35.746Z 
+ 
+Method: POST | Route Visited : /user/login | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:36:56.826Z 
+ 
+Method: POST | Route Visited : /grocery/addgrocery | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:37:21.903Z 
+ 
+Method: POST | Route Visited : /grocery/addgrocery | Status Code: 200 | Response Time: 4ms | Time: 2023-08-30T09:38:32.754Z 
+ 
+Method: PATCH | Route Visited : /grocery/update/:64ef0e1884621915f3b72b2d | Status Code: 200 | Response Time: 3ms | Time: 2023-08-30T09:41:04.002Z 
+ 
+Method: PATCH | Route Visited : /grocery/update/64ef0e1884621915f3b72b2d | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:42:04.616Z 
+ 
+Method: PATCH | Route Visited : /grocery/update/64ef0e1884621915f3b72b2d | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:42:25.494Z 
+ 
+Method: PATCH | Route Visited : /grocery/update/64ef0e1884621915f3b72b2d | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:42:29.395Z 
+ 
+Method: GET | Route Visited : /cart/cartitem | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:44:18.193Z 
+ 
+Method: POST | Route Visited : /cart/addtocart/64ef0e1884621915f3b72b2d | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:45:34.437Z 
+ 
+Method: DELETE | Route Visited : /cart/delete/64ef0fbe84621915f3b72b39 | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:49:45.256Z 
+ 
+Method: GET | Route Visited : /cart/cartitem | Status Code: 200 | Response Time: 1ms | Time: 2023-08-30T09:50:08.534Z 
+ 
+Method: GET | Route Visited : /order | Status Code: 200 | Response Time: 0ms | Time: 2023-08-30T09:54:18.183Z 
+ 
+Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 3ms | Time: 2023-08-30T09:54:26.313Z 
+ 
