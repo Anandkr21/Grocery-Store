@@ -142,3 +142,11 @@ Method: GET | Route Visited : /order | Status Code: 200 | Response Time: 0ms | T
  
 Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 3ms | Time: 2023-08-30T09:54:26.313Z 
  
+Method: GET | Route Visited : /favicon.ico | Status Code: 200 | Response Time: 3ms | Time: 2023-08-31T17:05:28.296Z 
+ 
+Method: GET | Route Visited : /grocery/allgrocery | Status Code: 200 | Response Time: 4ms | Time: 2023-08-31T17:05:39.568Z 
+ 
+Method: GET | Route Visited : /cart/cartitem | Status Code: 401 | Response Time: 2ms | Time: 2023-08-31T17:05:53.401Z 
+ 
+Method: GET | Route Visited : /order/get | Status Code: 200 | Response Time: 2ms | Time: 2023-08-31T17:06:51.336Z 
+ 
